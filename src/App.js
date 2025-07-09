@@ -3,7 +3,7 @@ import './App.css'; // 기본 CSS 파일을 활용하거나 직접 작성하세�
 
 function App() {
     // FastAPI 백엔드 서버의 주소를 여기에 입력하세요.
-    const API_BASE_URL = "http://56.155.27.230";
+    const API_BASE_URL = "http://56.155.27.230:53000";
 
     // 상태 관리
     const [serverMessage, setServerMessage] = useState('');
