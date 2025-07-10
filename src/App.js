@@ -3,7 +3,9 @@ import './App.css'; // 기본 CSS 파일을 활용하거나 직접 작성하세�
 
 function App() {
     // FastAPI 백엔드 서버의 주소를 여기에 입력하세요.
-    const API_BASE_URL = process.env.REACT_APP_API_URL;
+    // .env 파일에 REACT_APP_API_URL=http://localhost:8000 와 같이 설정하거나
+    // 여기에 직접 서버 주소를 넣어줄 수 있습니다.
+    const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000"; 
 
     // 상태 관리
     const [serverMessage, setServerMessage] = useState('');
@@ -37,7 +39,7 @@ function App() {
             const healthData = await healthResponse.json();
             setHealthStatus(`${healthData.status} - ${healthData.message}`);
         } catch (error) {
-            setServerMessage(`서버 연결 오류: ${error.message}`);
+            setServerMessage(`서버 연결 오류: ${error.message}. 백엔드 서버가 실행 중인지, CORS 설정이 올바른지 확인하세요.`);
             setHealthStatus('오류 발생');
             console.error('Server status check error:', error);
         }
