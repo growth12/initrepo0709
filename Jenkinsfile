@@ -22,8 +22,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "docker rm -f $CONTAINER_NAME || true"
-                sh "docker run -d -p ${PORT}:80 --name $CONTAINER_NAME $IMAGE_NAME"
+                echo 'Deploying...'
+                dir('C:/Users/user/terraform0710/initbase') {
+                    sh 'terraform init'
+                    sh 'terraform apply -auto-approve'
+                }
             }
         }
 
