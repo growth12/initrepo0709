@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "react-app"
-        CONTAINER_NAME = "react-app-container"
+        IMAGE_NAME = "frontend-app"
+        CONTAINER_NAME = "frontend-app-container"
         PORT = "80"
     }
 
